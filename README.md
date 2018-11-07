@@ -21,4 +21,13 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ______________________________ПРИМЕР именования функций в store для (mutations, getters, actions) ДЛЯ ОДНООБРАЗИЯ и наглядности:
- см.файл `Readme.js`
+
+см.файл `Readme.js`
+
+# Данные для логинации:
+
+homer@mail.com / 123456
+
+admin@admin.com / 331429
+
+itmaster.dev@gmail.com / 654321

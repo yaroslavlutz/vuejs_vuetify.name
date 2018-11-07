@@ -6,6 +6,12 @@
                     <img src="@/assets/logo.png" alt="Vuetify.js" class="identy-img-component-img">
                     <v-flex xs12>
                         <h2 class="identy-name-component-title">This is `LoginComp.vue` Component</h2>
+                        <p>
+                            <b>Данные для Логинации:</b><br/>
+                            homer@mail.com / 123456 <br/>
+                            admin@admin.com / 331429 <br/>
+                            itmaster.dev@gmail.com / 654321 <br/>
+                        </p>
                     </v-flex>
                 </v-layout>
             </v-slide-y-transition>
