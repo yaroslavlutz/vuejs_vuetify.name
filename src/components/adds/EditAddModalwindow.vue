@@ -48,30 +48,30 @@
   export default {
     data () {
       return {
-        modelWindow: false, // управление отображением / скрытием модального окна - FALSE - модальное окно с формой скрывается
-        editedTitle: null, // модель input-поля c id="title"
-        editedDescription: null // модель input-поля c id="description"
+        modelWindow: false, 
+        editedTitle: null, 
+        editedDescription: null
       }
     },
     created: function () {
-      this.editedTitle = this.$store.getters.getAddByIdFunc.title // в соответствующую модель загоняем данные из БД`firebase` и эти данные выводятся в соотв.поле `input`
-      this.editedDescription = this.$store.getters.getAddByIdFunc.description // в соответствующую модель загоняем данные из БД`firebase` и эти данные выводятся в соотв.поле `input`
+      this.editedTitle = this.$store.getters.getAddByIdFunc.title
+      this.editedDescription = this.$store.getters.getAddByIdFunc.description
     },
     methods: {
       onCancelFunc: function () {
-        this.editedTitle = this.$store.getters.getAddByIdFunc.title // чтобы при закрытии окна возвращались те данные из БД`firebase`
-        this.editedDescription = this.$store.getters.getAddByIdFunc.description // чтобы при закрытии окна возвращались те данные из БД`firebase`
+        this.editedTitle = this.$store.getters.getAddByIdFunc.title
+        this.editedDescription = this.$store.getters.getAddByIdFunc.description
         //
-        this.modelWindow = false // закрываем модальное окно с формой
+        this.modelWindow = false
       },
       onSaveFunc: function () {
-        if (this.editedTitle !== '' && this.editedDescription !== '') { // если данные поля ф форме Не равны поустой строке,т.е поля заполнены
+        if (this.editedTitle !== '' && this.editedDescription !== '') { 
           this.$store.dispatch('updateSingleAddAction', {
             title: this.editedTitle,
             description: this.editedDescription,
             id: this.$store.getters.getAddByIdFunc.id
-          }) // вместо получения ID записи путем:`this.$store.getters.getAddByIdFunc.id` можно воспользоваться и этой нашей Ф-ей:`this.$store.getters.getIdSingleRecord`
-          this.modelWindow = false // закрываем модальное окно с формой
+          }) 
+          this.modelWindow = false 
         }
       }
     },

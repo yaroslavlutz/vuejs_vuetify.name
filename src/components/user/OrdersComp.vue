@@ -70,17 +70,17 @@
         console.log(order.id) // здесь будет ID этого ордера с`firebase`
         //
         console.log('doneOrNot --> ' + order.doneOrNot)
-        let checkOrderDoneOrNot // объявляем переменную для булевского типа TRUE/FALSE и будем туда помещать нужное зн-е checkBox
-        if (order.doneOrNot === true) { // сначала проверяем, этот заказ отмечен как выполненный или нет (стоит включенный checkBox изначально или нет)
-          checkOrderDoneOrNot = false // если он уже чекнутый, то мы должны убрать его
+        let checkOrderDoneOrNot
+        if (order.doneOrNot === true) { 
+          checkOrderDoneOrNot = false 
         } else {
-          checkOrderDoneOrNot = true // если он не чекнутый, то мы должны его чекнуть
+          checkOrderDoneOrNot = true
         }
 
-        let orderID = order.id // ID данного ордера!!
+        let orderID = order.id 
         this.$store.dispatch('orderDoneAction', {orderID, checkOrderDoneOrNot})
           .then(function () {
-            order.doneOrNot = checkOrderDoneOrNot // поменщаем сюда зн-е TRUE/FALSE в зависимости от состояния checkBox и это зн-е будет лететь в`firebase`
+            order.doneOrNot = checkOrderDoneOrNot 
           }).catch(function (error) {
           // Handle any errors
         })
@@ -89,7 +89,7 @@
     computed: {
       ordersDataFromStoreFunc: function () {
         return this.$store.getters.getOrdersDataFunc
-      } // Взять все ордера, которые принадлежат данному Юзеру
+      } 
     }
   }
 </script>

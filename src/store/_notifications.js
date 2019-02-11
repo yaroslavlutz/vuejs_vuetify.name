@@ -1,12 +1,9 @@
 export default {
-  /* `state` -Объект.котоый описываеи все состояние нашего приложения */
   state: {
     loading: false,
     error: null
   },
-  mutations: { // по-сути это setters. Через `mutations`идет изменение данных(изменение `state`) при использовании `Store`
-    /* 1) Если в `mutations` нужно передать не просто одиночное зн-е,то сюда передается Объект с нужными данными,который предварительно нужно сформировать.
-      2) В `mutations` не передается и не пишется никаких асинхронных запросов. Для этого есть `actions` */
+  mutations: { 
     setLoadingMutate (state, payload) {
       state.loading = payload
     },
@@ -18,26 +15,23 @@ export default {
     }
   },
   getters: {
-    /* #Возвращаем Loading..` */
-    getLoadingFunc: function (state) { // OR: getLoadingFunc() {..}
+    getLoadingFunc: function (state) { 
       return state.loading
     },
-    /* #Возвращаем Error..` */
-    getErrorFunc: function (state) { // OR: getErrorFunc() {..}
+
+    getErrorFunc: function (state) { 
       return state.error
     }
   },
   actions: {
-    /* `context` - спец.св-во
-     `data / dataObject` - те данные,которые мы получаем и с кот.нужно работать */
     // some code if you want..
-    setLoadingAction: function ({commit}, payload) { // OR: setLoadingAction ({commit}, payload) {..}
+    setLoadingAction: function ({commit}, payload) { 
       commit('setLoadingMutate', payload)
     },
-    setErrorAction: function ({commit}, payload) { // OR: setErrorAction ({commit}, payload) {..}
+    setErrorAction: function ({commit}, payload) {
       commit('setErrorMutate', payload)
     },
-    clearErrorAction: function ({commit}) { // OR: clearErrorAction ({commit}) {..}
+    clearErrorAction: function ({commit}) {
       commit('setClearErrorMutate')
     }
   }

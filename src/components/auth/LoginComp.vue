@@ -68,13 +68,13 @@
 
 
 <script>
-  const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/ /* регулярное выр-е для валидации корректности E-mail пользователя */
+  const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/ 
 
   export default {
     data () {
       return {
         name: '',
-        thisNameRules: [  // правила валидации для поля `Name User` - <v-text-field id="name">
+        thisNameRules: [ 
           function (v) {
             if (v) { return true } else { return 'Name User is required' } // OR: v => !!v || 'Name User is required',
           },
@@ -105,7 +105,7 @@
     },
     created () {
       if (this.$route.query['loginError']) {
-        this.$store.dispatch('setErrorAction', 'Идите нахуй!!! Просмотр запрещен!! Сначала залогиньтесь!')
+        this.$store.dispatch('setErrorAction', 'Просмотр запрещен!! Сначала залогиньтесь!')
       }
     },
     methods: {

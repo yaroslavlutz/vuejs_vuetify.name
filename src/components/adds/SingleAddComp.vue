@@ -44,13 +44,13 @@
 
 <script>
   /** Import Custom components: */
-  import EditAddModalwindow from './EditAddModalwindow.vue' // импортируем компонент,где у нас будет Модальное Окно с формой для редактирования(Edit) записи
-  import BuyModalwindow from './BuyModalwindow.vue' // импортируем компонент,где у нас будет Модальное Окно с формой для покупки чего-то(Buy)
+  import EditAddModalwindow from './EditAddModalwindow.vue'
+  import BuyModalwindow from './BuyModalwindow.vue' 
 
   export default {
     data () {
       return {
-        postId: null // ID конкретной записи, которую мы просматриваем
+        postId: null 
       }
     },
     components: {
@@ -59,19 +59,16 @@
     },
     created: function () {
       this.postId = this.$route.params.id // console.log(this.postId); //OR: this.$router.currentRoute.params['id']; Т.к.`this.$route` ЭТО `this.$router.currentRoute`
-      /* dispatch() - метод изменения Объекта в`store` через `actions`.
-         Тут ВАЖНО - это мы передаем в `src/store/_single_add.js` в его св-во `state` значение`id` текущей записи,которое потом тамже в Геттере`getAddByIdFunc()`
-         используем для получения одной конкретной записи по этому самому ID,который мы получаем из параметра роута */
       this.$store.dispatch('currentIdSingleAdd', this.postId)
-      console.log(this.postId) // получаем ID той записи,которую в данный момент просматриваем
+      console.log(this.postId) 
         // или:
-      console.log(this.$store.getters.getIdSingleRecord) // получаем ID той записи,которую в данный момент просматриваем
+      console.log(this.$store.getters.getIdSingleRecord) 
     },
     computed: {
       singleAddDataFunc: function () {
         return this.$store.getters.getAddByIdFunc
       },
-      isOwnerCurrentUserFunc: function () { // обращаемся к getters`getUserDataFunc()`,который возвращ.ID текущего Юзера в`src/store/_user.js` и проверяем эта запись принадлежит этому Юзеру
+      isOwnerCurrentUserFunc: function () { 
         if (this.singleAddDataFunc.ownerID === this.$store.getters.getUserDataFunc.id) {
           return true
         } else {

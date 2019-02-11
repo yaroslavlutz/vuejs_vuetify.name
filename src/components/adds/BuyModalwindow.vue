@@ -48,34 +48,33 @@
   export default {
     data () {
       return {
-        modelWindow: false, // управление отображением / скрытием модального окна - FALSE - модальное окно с формой скрывается
-        nameCustomer: '', // модель input-поля c id="name_of_customer"
-        phoneCustomer: '' // модель input-поля c id="phone_of_customer"
+        modelWindow: false,
+        nameCustomer: '', 
+        phoneCustomer: '' 
       }
     },
     created: function () {
-      // this.editedTitle = this.$store.getters.getAddByIdFunc.title // в соответствующую модель загоняем данные из БД`firebase` и эти данные выводятся в соотв.поле `input`
-      // this.editedDescription = this.$store.getters.getAddByIdFunc.description // в соответствующую модель загоняем данные из БД`firebase` и эти данные выводятся в соотв.поле `input`
+
     },
     methods: {
       onCancelFunc: function () {
-        this.nameCustomer = '' // чтобы при закрытии окна поля очищались
-        this.phoneCustomer = '' // чтобы при закрытии окна поля очищались
+        this.nameCustomer = '' 
+        this.phoneCustomer = '' 
         //
-        this.modelWindow = false // закрываем модальное окно с формой
+        this.modelWindow = false 
       },
       onSaveFunc: function () {
-        if (this.nameCustomer !== '' && this.phoneCustomer !== '') { // если данные поля в форме Не равны пустой строке,т.е поля заполнены
+        if (this.nameCustomer !== '' && this.phoneCustomer !== '') { 
           this.$store.dispatch('createOrderAction', {
             nameCustomer: this.nameCustomer,
             phoneCustomer: this.phoneCustomer,
             addId: this.$store.getters.getAddByIdFunc.id,
             ownerID: this.$store.getters.getAddByIdFunc.ownerID
-          }) // вместо получения ID записи путем:`this.$store.getters.getAddByIdFunc.id` можно воспользоваться и этой нашей Ф-ей:`this.$store.getters.getIdSingleRecord`
+          })
           //
-          this.nameCustomer = '' // чтобы при закрытии окна поля очищались
-          this.phoneCustomer = '' // чтобы при закрытии окна поля очищались
-          this.modelWindow = false // закрываем модальное окно с формой
+          this.nameCustomer = '' 
+          this.phoneCustomer = '' 
+          this.modelWindow = false 
         }
       }
     },

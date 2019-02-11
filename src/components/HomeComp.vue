@@ -5,7 +5,7 @@
         <v-layout row align-center> <!--row/column/align-center/justify-center/wrap-->
           <img src="@/assets/logo.png" alt="Vuetify.js" class="identy-img-component-img">
           <v-flex xs12>
-            <code> Все,что тут сделано,сделано по видеоурокам - <b><i>`https://coursehunters.net/course/freymvork-vue-js-polnoe-rukovodstvo-dlya-sovremennoy-veb-razrabotki`</i></b></code>
+
             <h2 class="identy-name-component-title">This is `HomeComp.vue` Component</h2>
           </v-flex>
         </v-layout>
@@ -96,13 +96,11 @@ export default {
   },
   computed: {
     addsDataFromStoreFunc: function () { // OR: addsDataFromStoreFunc() {..}
-      /* Обращаемся к глобальной перем.`$store` и далее к спец.вычислителительному св-ву нашего `state` - `getters`
-          в модуле `/src/store/_single_add.js` и потом к нужному св-ву `computed`,т.е. к `getAddsDataFunc()` */
+     
       return this.$store.getters.getAddsDataFunc
-    }, // Взять Все записи которые только имеются
+    }, 
     addsDataOnlyPromoFromStoreFunc: function () { // OR: addsDataOnlyPromoFromStoreFunc() {..}
-      /* Обращаемся к глобальной перем.`$store` и далее к спец.вычислителительному св-ву нашего `state` - `getters`
-          в модуле `/src/store/_single_add.js` и потом к нужному св-ву `computed`,т.е. к `getAddsDataOnlyPromoFunc()` */
+      
       return this.$store.getters.getAddsDataOnlyPromoFunc
     }, // Взять те записи, у которых свойство "promo" true
     loadingAllAppFunc: function () {
@@ -111,7 +109,7 @@ export default {
   }
 }
 </script>
-<!--в нужном Компоненте мы можем писать кодом препроцессора, например SCSS. Важно прописать lang="stylus"-->
+
 <style scoped lang="stylus">
 h1, h2 {
   font-weight: normal;

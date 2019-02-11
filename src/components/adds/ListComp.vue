@@ -94,16 +94,12 @@
       // some code if you want..
     },
     computed: {
-      addsDataFromStoreFunc: function () { // OR: addsDataFromStoreFunc() {..}
-        /* Обращаемся к глобальной перем.`$store` и далее к спец.вычислителительному св-ву нашего `state` - `getters`
-            в модуле `/src/store/_single_add.js` и потом к нужному св-ву `computed`,т.е. к `getAddsDataFunc()` */
+      addsDataFromStoreFunc: function () { 
         return this.$store.getters.getAddsDataFunc
-      }, // Взять Все записи которые только имеются
-      myAddsDataFromStoreFunc: function () { // OR: addsDataFromStoreFunc() {..}
-        /* Обращаемся к глобальной перем.`$store` и далее к спец.вычислителительному св-ву нашего `state` - `getters`
-            в модуле `/src/store/_single_add.js` и потом к нужному св-ву `computed`,т.е. к `getMyAddsDataFunc()` */
+      },
+      myAddsDataFromStoreFunc: function () { // OR: addsDataFromStoreFunc() {..}/
         return this.$store.getters.getMyAddsDataFunc
-      } // Взять Только те записи которые добавил пользователь,- т.е. ему будут показаны только его записи
+      }
     }
   }
 </script>

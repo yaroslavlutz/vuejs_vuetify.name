@@ -75,13 +75,13 @@
     data () {
       return {
         title: '',
-        thisTitleRules: [  // правила валидации для поля `Add new title` - <v-text-field id="title">
+        thisTitleRules: [  
           function (v) {
             if (v) { return true } else { return 'Add new title is required' } // OR: v => !!v || 'Add new title is required',
           }
         ],
         description: '',
-        thisDescriptionRules: [  // правила валидации для поля `Add new title` - <v-text-field id="title">
+        thisDescriptionRules: [ 
           function (v) {
             if (v) { return true } else { return 'Add new Description is required' } // OR: v => !!v || 'Add new Description is required',
           }
@@ -89,8 +89,8 @@
         promo: false,
         validCheckFormNewAdd: false,
 
-        imageObj: null, // для хранения Объекта изображения,которое будет загружаться пользователем
-        imageSrc: '' // для хранения URL изображения,которое будет загружаться пользователем
+        imageObj: null, 
+        imageSrc: '' 
       }
     },
     methods: {
@@ -106,30 +106,25 @@
           this.validCheckFormNewAdd = true
           console.log(newAddObjValidation)
 
-          // dispatch() - метод изменения Объекта в`store` через `actions`
           this.$store.dispatch('createNewAddAction', newAddObjValidation)
-          // clear fields form
           this.title = ''
           this.description = ''
           this.promo = ''
-          //
           this.$router.push('/list')
         }
       },
       triggerClickInputFileUploadFunc: function () {
-        this.$refs.inputFileUpload.click() // имитируем клик на реальном <input type="file" accept="image/*" ref="inputFileUpload">
+        this.$refs.inputFileUpload.click()
       },
       onInputFileChangeFunc: function (event) {
-        let uploadFile = event.target.files[0]  // будет храниться то изображение,которое мы загрузили и кот.мы будем сохранять в`firebase`
-        const readerFile = new FileReader() // FileReader() -стандартный(нативный) Класс lavaScript для работы с загрузкой и использованием изображений,т.что доп.ничего подключать не нужно!
+        let uploadFile = event.target.files[0] 
+        const readerFile = new FileReader() 
 
-        readerFile.onload = e => { // прослушка события
-          this.imageSrc = readerFile.result // передаем в нашу Модель`imageSrc` те данные из `readerFile` с загруженным изображением
-          // console.log('Model `imageSrc -->`' + this.imageSrc)
+        readerFile.onload = e => { 
+          this.imageSrc = readerFile.result 
         }
-        readerFile.readAsDataURL(uploadFile) // передаем в метод`readAsDataURL()` тот файл,кот.мы загрузили
-        this.imageObj = uploadFile // передаем в нашу Модель`image` загруженный нативный файл с инпута загрузки
-        // console.log('Model `imageObj -->`' + this.imageObj)
+        readerFile.readAsDataURL(uploadFile) 
+        this.imageObj = uploadFile 
       }
     }
   }

@@ -1,4 +1,4 @@
-import store from '../store/index.js' // импортируем уже из `/store/index.js`(т.к.туда мы его первично импортировали и инициализировали) библиотеку 'vuex'
+import store from '../store/index.js' 
 
 export default function (to, from, next) {
   if (store.getters.getUserDataFunc) {

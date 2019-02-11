@@ -1,5 +1,5 @@
 <template>
-  <v-app> <!--Единственный корневой инициализурующий тег для `Vuetify`-->
+  <v-app> 
 
     <!--Navigation Drawer-->
     <v-navigation-drawer app temporary
@@ -87,7 +87,6 @@
 
     <v-footer app></v-footer>
 
-    <!--Блок Показа пользователю сообщений: Регистрация/Логинация/Ошибки ...  v-model="snackbar" v-on:click="snackbar = false"-->
     <template v-if="errorFunc">
       <v-snackbar color="error"
                   v-bind:multi-line="true"
@@ -102,9 +101,8 @@
 
       </v-snackbar>
     </template>
-    <!--/Блок Показа пользователю сообщений: Регистрация/Логинация/Ошибки ...-->
 
-  </v-app> <!--/Единственный корневой инициализурующий тег для `Vuetify`-->
+  </v-app> 
 </template>
 
 <script>

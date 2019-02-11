@@ -72,7 +72,7 @@
     data () {
       return {
         name: '',
-        thisNameRules: [  // правила валидации для поля `Name User` - <v-text-field id="name">
+        thisNameRules: [ 
           function (v) {
             if (v) { return true } else { return 'Name User is required' } // OR: v => !!v || 'Name User is required',
           },
@@ -81,7 +81,7 @@
           }
         ],
         email: '',
-        thisEmailRules: [ // правила валидации для поля `E-mail` - <v-text-field id="email">
+        thisEmailRules: [ 
           function (v) {
             if (v) { return true } else { return 'E-mail is required' } // OR: v => !!v || 'E-mail is required',
           },
@@ -90,7 +90,7 @@
           }
         ],
         password: '',
-        thisPasswordRules: [  // правила валидации для поля `Password` - <v-text-field id="password">
+        thisPasswordRules: [  
           function (v) {
             if (v) { return true } else { return 'Password is required' } // OR: v => !!v || 'Password is required',
           },
@@ -99,7 +99,7 @@
           }
         ],
         confirmPassword: '',
-        thisConfirmPasswordRules: [  // правила валидации для поля `Confirm Password` - <v-text-field id="confirm_password">
+        thisConfirmPasswordRules: [ 
           function (v) {
             if (v) { return true } else { return 'Confirm Password is required' } // OR: v => !!v || 'Confirm Password is required',
           },
@@ -109,7 +109,7 @@
       }
     },
     methods: {
-      onSubmitFunc: function () { // onSubmitFunc(){..}
+      onSubmitFunc: function () {
         if (this.$refs.ref_form.validate()) {
           const userObjValidation = {
             name: this.name,
